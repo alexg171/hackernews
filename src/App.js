@@ -20,25 +20,31 @@ const list = [
   }
 ]
 
-const array = [1,4,9,16];
+const array = [1, 4, 9, 16];
+
+const newArray = array.map(function (x) { return x*2; });
+
+console.log(newArray);
 
 class App extends Component {
   render() {
-    const helloWorld = 'Welcome to the Road to learn React';
-    const element = <h1>Hello, world!</h1>
-    const user = {
-      firstName: 'Harper',
-      lastname: 'Perez'
-    };
     return (
       <div className="App">
         {list.map(function(item) {
-          return <div>{item.title}</div>;
-        })}
+          return (
+            <div key={item.objectID}>
+              <span>
+                <a href={item.url}>{item.title}</a>
+              </span>
+              <span>{item.author}</span>
+              <span>{item.num_comments}</span>
+              <span>{item.points}</span>
+            </div>
+          );
+          })}
       </div>
     );
   }
-  
 }
 
 export default App;
